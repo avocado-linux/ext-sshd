@@ -1,0 +1,27 @@
+supported_targets: '*'
+
+extensions:
+  avocado-ext-sshd:
+    version: 2024.1.0
+    release: r0
+    summary: OpenSSH server
+    description: OpenSSH server
+    license: Apache-2.0
+    url: https://github.com/avocadolinux/avocado-os
+    vendor: Avocado Linux <info@avocadolinux.org>
+
+    enable_services:
+      - sshd.socket
+
+    on_merge:
+      - systemctl start --no-block sshd.socket
+
+    packages:
+      openssh: '*'
+
+    sdk:
+      packages:
+        nativesdk-openssh-ssh: '*'
+
+sdk:
+  image: docker.io/avocadolinux/sdk:{{ env.AVOCADO_DISTRO_RELEASE }}-{{ env.AVOCADO_DISTRO_CHANNEL }}
