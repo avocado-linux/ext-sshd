@@ -2,13 +2,16 @@ supported_targets: '*'
 
 extensions:
   avocado-ext-sshd:
-    version: 0.1.0
+    version: 0.1.1
     release: r0
     summary: OpenSSH server
     description: OpenSSH server
     license: Apache-2.0
     url: https://github.com/avocadolinux/avocado-os
     vendor: Avocado Linux <info@avocadolinux.org>
+
+    # sshd drop-in: read authorized keys from /var (writable) as well as ~/.ssh.
+    overlay: overlay
 
     enable_services:
       - sshd.socket
