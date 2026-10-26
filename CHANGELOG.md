@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   filesystem is read-only, so `~/.ssh/authorized_keys` cannot be written for
   root; `/var` is writable and survives reboots and OS updates. Ship keys with
   the runtime's `var_files` or write them at provisioning.
+- `tmpfiles.d/avocado-sshd-keys.conf` creates `/var/lib/ssh/authorized_keys.d`
+  and resets it to root-owned, not group/world writable, at every merge. Keys
+  shipped with `var_files` keep the build host's owner and modes, which sshd's
+  StrictModes would otherwise reject.
 - CI builds against the 2026 feed as well as 2024.
 
 ## [0.1.0]
