@@ -7,7 +7,7 @@ extensions:
     summary: OpenSSH server
     description: OpenSSH server
     license: Apache-2.0
-    url: https://github.com/avocadolinux/avocado-os
+    url: https://github.com/avocado-linux/ext-sshd
     vendor: Avocado Linux <info@avocadolinux.org>
 
     enable_services:
